@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laureano · Video Editor & Motion Designer</title>
+<meta name="description" content="Portafolio de video e-learning, podcast, motion graphics y producción con IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1018;--surf:#141720;--card:#191d28;--line:rgba(255,255,255,.1);--tx:#fff;--tx2:#9ca3af;--acc:#0be7e7;--acc-d:rgba(11,231,231,.12);--on-acc:#001;--blob1:rgba(11,231,231,.28);--blob2:rgba(167,139,250,.25);--blob3:rgba(236,72,153,.18);--fd:'Outfit',sans-serif;--fb:'Inter',sans-serif}
+[data-theme=light]{--bg:#f6f8fb;--surf:#fff;--card:#fff;--line:rgba(10,20,40,.12);--tx:#0d1018;--tx2:#5b6472;--acc:#078f9c;--acc-d:rgba(7,143,156,.1);--on-acc:#fff;--blob1:rgba(11,231,231,.3);--blob2:rgba(167,139,250,.22);--blob3:rgba(236,72,153,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--tx);transition:background .3s,color .3s;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+section{padding:100px 0;position:relative}
+h2{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:600;margin-bottom:10px}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:14px;display:block}
+.sub{color:var(--tx2);max-width:520px;line-height:1.7;font-size:15px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--fd);font-weight:600;text-decoration:none;letter-spacing:.02em}
+.brand span{color:var(--acc)}
+.nl{display:flex;gap:22px;align-items:center}
+.nl a{font-size:13px;text-decoration:none;color:var(--tx2);transition:color .2s}
+.nl a:hover{color:var(--acc)}
+#theme,#theme2{background:none;border:1px solid var(--line);color:var(--tx);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;transition:.2s}
+#theme:hover,#theme2:hover{border-color:var(--acc)}
+nav{transition:background .3s,border-color .3s,color .3s}
+nav.t{background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;color:#fff}
+nav.t #theme{color:#fff;border-color:rgba(255,255,255,.3)}
+
+/* HERO (banner de video) */
+.hero{padding:84px 28px 0}
+.hb{position:relative;width:min(100%,max(520px,calc((100svh - 220px)*16/9)));max-width:1100px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#05070c;color:#fff;--acc:#0be7e7;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.hs{position:absolute;inset:0;overflow:hidden}
+.sl{position:absolute;inset:0;background:linear-gradient(135deg,#10151f,#0b2a30);transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.sl video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.scrim{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(5,7,12,.7),rgba(5,7,12,.25) 55%,transparent),linear-gradient(0deg,rgba(5,7,12,.85),transparent 55%)}
+.hx{position:absolute;left:0;right:0;bottom:58px;z-index:2;padding:0 30px}
+.hx .eyebrow{margin-bottom:8px}
+.hero h1{font-family:var(--fd);font-weight:300;font-size:clamp(26px,4.8vw,66px);line-height:1.04;letter-spacing:-.02em;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.rot{display:grid;color:var(--acc);font-weight:600;overflow:hidden}
+.rot span{grid-area:1/1;display:block;transition:transform .6s cubic-bezier(.7,0,.2,1),opacity .6s}
+.rot span.out{transform:translateY(-100%);opacity:0}
+.rot span.in{animation:wIn .6s cubic-bezier(.7,0,.2,1)}
+@keyframes wIn{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
+.nv{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:22px;line-height:1;cursor:pointer;opacity:.35;transition:.25s}
+.hb:hover .nv{opacity:.7}.nv:hover{opacity:1;background:rgba(255,255,255,.22)}
+.nv.l{left:14px}.nv.r{right:14px}
+.mute{position:absolute;right:20px;bottom:50px;z-index:3;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;font-size:13px;opacity:.7;transition:.25s}
+.mute:hover{opacity:1}
+.bars{position:absolute;left:0;right:0;bottom:12px;z-index:3;display:flex;gap:8px;padding:0 24px}
+.bar{flex:1;height:20px;display:flex;align-items:center;cursor:pointer}
+.bar b{display:block;width:100%;height:2px;background:rgba(255,255,255,.28);position:relative}
+.bar b::after{content:'';position:absolute;inset:0;width:var(--p,0%);background:var(--acc)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:none}
+
+/* GALERÍA */
+.ph{background:linear-gradient(135deg,var(--blob2),var(--blob1))}
+.lgd{margin-top:14px;font-size:13px;color:var(--tx2);display:flex;gap:6px;align-items:center}
+.tg{display:inline-block;position:relative;color:inherit}
+.tg.ia{font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;font-size:10px}
+.tg.mano{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;padding-bottom:5px}
+.tg+.tg{margin-left:.9em}
+.tg svg{position:absolute;left:0;bottom:0;width:100%;height:5px;overflow:visible}
+.tg svg path{fill:none;stroke:currentColor;stroke-width:1.2;opacity:.7;vector-effect:non-scaling-stroke}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:36px;align-items:start}
+.gi{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;cursor:pointer;translate:0 var(--py,0px);box-shadow:0 24px 50px -28px rgba(0,0,0,.55);background:var(--card);margin:0}
+.gi:nth-child(3n+2){margin-top:36px}
+.gi>img,.gi>.ph,.gi>.pst{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.16);transition:filter .5s}
+.gi>.pst{border:0;pointer-events:none}
+.gi:hover>img{filter:brightness(.82)}
+.sh{position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.6));opacity:0;transition:.4s}
+.gi:hover .sh,.al .sh{opacity:1}
+.gl{position:absolute;left:14px;right:14px;bottom:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.14);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);color:#fff;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s}
+.gl b{display:block;font:600 clamp(13px,1.2vw,16px) var(--fd);margin-bottom:6px}
+.gi:hover .gl{opacity:1;transform:none}
+.pl{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;opacity:0;transition:.35s}
+.pl i{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}
+.pl i::after{content:'';border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.gi:hover .pl{opacity:1}
+.gal.s3{display:flex;justify-content:center;gap:28px;flex-wrap:nowrap}
+.gi.v{aspect-ratio:9/16;width:min(270px,30%);flex:0 0 auto}
+.s3 .gi{margin-top:0}.s3 .gi:nth-child(2){margin-top:70px}
+.al .gl{opacity:1;transform:none;right:auto;left:12px;bottom:12px;padding:9px 13px}
+.al .pl{opacity:.85}
+@media(hover:none){.gl{opacity:1;transform:none}.pl{opacity:.85}}
+/* LOGOS */
+.logos{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;margin-top:30px;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.logos::-webkit-scrollbar{display:none}
+.lg{flex:0 0 auto;width:190px;height:64px;display:flex;align-items:center;justify-content:center;color:var(--tx2);font-size:12px}
+.lg img{max-width:130px;max-height:50px;opacity:.8;transition:.3s}
+.logos.mono .lg img{filter:brightness(0) invert(1)}
+[data-theme=light] .logos.mono .lg img{filter:brightness(0)}
+.lg:hover img{filter:none!important;opacity:1}
+
+/* SOFTWARE + ABOUT */
+.sw{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px;margin-top:50px}
+.sc{padding:24px 0}
+.cl{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center}
+.cl span{font-family:var(--fd);font-size:19px;font-weight:400;color:var(--tx);animation:bob 5s ease-in-out infinite;transition:scale .35s cubic-bezier(.3,1.5,.5,1);cursor:default}
+.cl .s1{font-size:17px;opacity:.75}.cl .s3{font-size:22px;font-weight:500}
+.cl span:hover{scale:.93}
+@keyframes bob{50%{translate:0 -5px}}
+.about{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center}
+.ph-img{width:240px;aspect-ratio:1;border-radius:50%;object-fit:cover;border:2px solid var(--acc);padding:6px;background:var(--surf)}
+.about p{color:var(--tx2);line-height:1.8;font-size:15px;margin-bottom:14px}
+
+/* FOOTER */
+footer{text-align:center;padding:80px 28px 40px;border-top:1px solid var(--line)}
+.sig{font-family:var(--fd);font-weight:300;font-size:clamp(22px,3vw,36px);line-height:1.3;max-width:720px;margin:0 auto;text-wrap:balance}
+.tld{color:var(--acc);font-weight:300;margin-right:.15em}
+.sig .w{display:inline-block;position:relative;opacity:0;transform:translateY(34px) rotate(3deg);filter:blur(8px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1),filter .8s;transition-delay:calc(var(--i)*.13s)}
+.sig.on .w{opacity:1;transform:none;filter:none}
+.sig .hl{font-style:italic;font-weight:500;background:linear-gradient(90deg,var(--acc),#a78bfa,#ec4899,var(--acc));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:-300% 0}}
+.ul{position:absolute;left:0;bottom:-.08em;width:100%;height:.28em;overflow:visible}
+.ul path{fill:none;stroke:var(--acc);stroke-width:3;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220;transition:stroke-dashoffset 1s 1.7s ease}
+.sig.on .ul path{stroke-dashoffset:0}
+.sp{position:absolute;top:-.3em;right:-.6em;font-size:.45em;font-style:normal;-webkit-text-fill-color:initial;animation:tw 2s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(1.4) rotate(20deg);opacity:.6}}
+.soc{margin:26px 0;display:flex;gap:22px;justify-content:center;font-size:13px}
+.soc a{text-decoration:none;color:var(--tx2)}.soc a:hover{color:var(--acc)}
+.secret{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tx2);opacity:.15;transition:.3s;margin-top:10px}
+.secret:hover{opacity:1;background:var(--acc);transform:scale(1.6)}
+
+@media(max-width:800px){.gal{grid-template-columns:1fr 1fr;gap:14px}.hero{padding:76px 14px 0}.hx{padding:0 18px}.hero .eyebrow{display:none}.gl{padding:8px 10px}.gi,.gi:nth-child(n){grid-column:auto;margin-top:0}.gal.s3{gap:12px}.s3 .gi:nth-child(2){margin-top:36px}.nv{display:none}.sw{grid-template-columns:1fr}.about{grid-template-columns:1fr;text-align:center}.ph-img{margin:0 auto;width:180px}.nl a.hm{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* TARIFAS */
+#tarifas{position:fixed;inset:0;z-index:120;background:var(--bg);overflow-y:auto;transform:translateY(100%);visibility:hidden;transition:transform .6s cubic-bezier(.7,0,.2,1),visibility 0s .6s}
+#tarifas.open{transform:none;visibility:visible;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.tbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 28px;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.tbar>button,#theme2{background:none;border:1px solid var(--line);color:var(--tx);border-radius:999px;padding:8px 16px;font:400 13px var(--fb);cursor:pointer}
+#theme2{width:34px;height:34px;padding:0;border-radius:50%}
+.cur{display:flex;border:1px solid var(--line);border-radius:30px;padding:4px;gap:4px}
+.cur button{background:none;border:0;color:var(--tx2);font:400 12px var(--fb);padding:6px 16px;border-radius:20px;cursor:pointer}
+.cur button.act{background:var(--acc);color:var(--on-acc);font-weight:500}
+#tb{max-width:1160px;margin:0 auto;padding:60px 28px 100px}
+.tl{font:600 24px var(--fd);margin:56px 0 22px}
+.t3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.col{display:flex;flex-direction:column;gap:12px}
+.c1{--a:#4aedb4}.c2{--a:#a78bfa}.c3{--a:#fb923c}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;transition:transform .2s,border-color .2s}
+.tc:hover{border-color:var(--a,var(--acc));transform:translateY(-2px)}
+.tc.hd{background:var(--surf);border-top:2px solid var(--a)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.tc b{font:600 17px var(--fd)}
+.tc em,.bh em{font-style:normal;font-size:10px;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--a,var(--acc)) 15%,transparent);color:var(--a,var(--acc));white-space:nowrap}
+.tc p,.tc small{font-size:12px;color:var(--tx2);line-height:1.6}
+.pm{font:700 26px var(--fd);margin:8px 0 6px}
+.pa{font-size:11px;color:var(--tx2)}
+.old{font-size:16px;color:var(--tx2);text-decoration:line-through;opacity:.7}
+.ft{list-style:none;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.ft li{font-size:12px;color:var(--tx2);display:flex;gap:8px}
+.ft li::before{content:'✓';color:var(--acc);font-weight:700}
+.ft li.no::before{content:'✕';color:#ef4444}
+.bk{margin-top:64px}
+.bh{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px}
+.bh i{width:3px;height:36px;border-radius:2px;background:var(--a)}
+.bh h3{font:600 22px var(--fd)}.bh p{font-size:12px;color:var(--tx2);margin-top:3px}
+.hr{display:grid;gap:14px}
+.qt{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;text-align:center;border-style:dashed;background:transparent}
+.demo{border:0;cursor:pointer;display:inline-block;background:var(--acc);color:var(--on-acc);font:600 13px var(--fd);text-decoration:none;padding:10px 20px;border-radius:6px}
+.note{margin-top:28px;font-size:12px;color:var(--tx2);background:var(--surf);border-left:2px solid var(--acc);padding:14px 18px;border-radius:0 12px 12px 0;line-height:1.8}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0;background:var(--surf);border:1px solid var(--line);border-radius:8px;padding:16px}
+.cmp h4{font:600 14px var(--fd);margin-bottom:10px}
+.rt{text-align:center;font-size:11px;color:var(--tx2);opacity:.6;margin-top:60px}
+@media(max-width:800px){.t3,.hr{grid-template-columns:1fr!important}.cmp{grid-template-columns:1fr}.tbar{padding:12px 16px}}
+#pv{position:fixed;inset:0;z-index:200;background:rgba(5,7,12,.88);backdrop-filter:blur(8px);display:none;place-items:center;padding:20px}
+#pv.open{display:grid}
+.pvb{position:relative;height:min(86vh,760px);aspect-ratio:9/16;background:#000;border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.pvb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pvb p{position:absolute;inset:0;display:grid;place-items:center;padding:30px;text-align:center;color:#fff;font-size:14px}
+.pvb.h{aspect-ratio:16/9;height:auto;width:min(960px,100%)}
+#pvx{position:absolute;top:14px;right:22px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+.pvbtn{display:table;margin:14px 0 0;padding:8px 14px;font:500 11px var(--fb);color:var(--tx);background:var(--acc-d);border:1px solid var(--line);border-radius:999px;cursor:pointer;transition:.2s}
+.pvbtn:hover{border-color:var(--acc);transform:translateY(-1px)}
+.yb{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:12px;padding:34px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.7));opacity:0;transition:.3s}
+.pvb:hover .yb,.yb:focus-within{opacity:1}
+@media(hover:none){.yb{opacity:1}}
+.yb button{background:none;border:0;color:#fff;font-size:15px;cursor:pointer;width:28px}
+.yb input{flex:1;accent-color:#0be7e7}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="brand">Laureano<span>.</span></a>
+  <div class="nl">
+    <button id="theme" class="thm" aria-label="Cambiar tema">☀</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hb">
+    <div class="hs" id="hs"></div>
+    <div class="scrim"></div>
+    <div class="hx">
+      <span class="eyebrow">Multimedia Specialist + IA // Motion Designer</span>
+      <h1>Creatividad humana<span class="rot" id="rot"><span>&nbsp;</span></span></h1>
+    </div>
+    <button class="nv l" id="hp" aria-label="Video anterior">‹</button>
+    <button class="nv r" id="hn" aria-label="Video siguiente">›</button>
+    <button class="mute" id="hm" aria-label="Sonido">🔇</button>
+    <div class="bars" id="bars"></div>
+  </div>
+</header>
+
+<section id="proyectos" style="padding:56px 0 40px">
+  <div class="wrap">
+    <div class="rv"><h2>Laureano + IA</h2><p class="lgd" id="lgd"></p></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section id="social" style="background:var(--surf);padding:70px 0 80px">
+  <div class="wrap">
+    <div class="rv"><h2>Videos para RRSS</h2></div>
+    <div class="gal s3" id="soc"></div>
+  </div>
+</section>
+
+<section id="taller">
+  <div class="wrap">
+    <div class="rv"><h2>Herramientas</h2>
+    </div>
+    <div class="sw" id="sw"></div>
+  </div>
+</section>
+
+<section id="marcas" style="background:var(--surf);padding:60px 0">
+  <div class="wrap rv"><h2 style="font-size:clamp(20px,2.6vw,26px);text-align:center">Marcas con las que he trabajado</h2></div>
+  <div class="logos" id="logos"></div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <img class="ph-img rv" id="me" alt="Laureano" src="https://ci3.googleusercontent.com/mail-sig/AIorK4ybIoLYO777brM54WAEfpvRwbdmDU7VMUE-ZOqDAv8iEtdoyRgW1KNQCRsgeYDWcvR-rJ3BQd6seW_2">
+    <div class="rv">
+      <span class="eyebrow">Sobre mí</span><h2>Hola, soy Laureano</h2>
+      <!-- EDITA ESTE TEXTO -->
+      <p>Especialista en transformar información compleja en contenido visual atractivo, incluyendo vídeo e imágenes, diseño instruccional y flujos de trabajo con inteligencia artificial.</p>
+      <p>Creación de contenido para plataformas de e-learning, contenido corporativo y proyectos dinámicos para redes sociales.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="sig" id="sig" aria-label="Gracias por creer en lo que soy capaz de crear"></p>
+  <div class="soc">
+    <a href="https://www.instagram.com/laureano099/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@estela.visual" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://www.linkedin.com/in/laureano099/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <!-- Acceso oculto a tarifas: el puntico -->
+  <button class="secret" id="openT" aria-label="Tarifas" style="border:0;cursor:pointer"></button>
+</footer>
+
+<div id="pv"><button id="pvx" aria-label="Cerrar">×</button><div class="pvb" id="pvb"></div></div>
+<div id="tarifas" aria-label="Tarifas">
+  <div class="tbar"><button id="tback">← Volver</button><div class="cur"><button class="act" data-c="EUR">EUR</button><button data-c="USD">USD</button><button data-c="COP">COP</button></div><button id="theme2" class="thm" aria-label="Tema">☀</button></div>
+  <div id="tb"></div>
+</div>
+
+<script>
+/* ═══════════ 1) PALABRAS DEL HERO ═══════════ */
+const WORDS = ['potenciada con IA.','After Effects.','+ 8 años de experiencia.','experiencias E-learning.','con Premiere Pro.','storytelling','café y curiosidad.'];
+
+/* ═══════════ 2) VIDEOS — AQUÍ PONES LOS TUYOS ═══════════ */
+// Carrusel de la portada: carpeta "Videos" junto al index.html (respeta mayúsculas)
+const HERO_VIDEOS = [
+  'Videos/Video_1_ByLau.mp4','Videos/Video_2_ByLau.mp4','Videos/Video_3_ByLau.mp4','Videos/Video_4_ByLau.mp4',
+  'Videos/Video_5_ByLau.mp4','Videos/Video_6_ByLau.mp4','Videos/Video_7_ByLau.mp4',
+];
+// Galería (YouTube): id = lo que va después de youtu.be/ · k: 'ia' | 'mano' | 'mix' · tag: texto de la etiqueta
+const GALERIA = [
+  {id:'xCZP5Y9MLUE',title:'Lo corporativo, sin límites',k:'ia',tag:'Video IA'},
+  {id:'hPUHh8qOhlA',title:'Un tono cercano',k:'ia',tag:'Video IA'},
+  {id:'ld2C0-ITLLE',title:'Podcast que atraen',k:'mano',tag:'Animado a mano'},
+  {id:'ovMfkFcKM_w',title:'Promocionales con carácter',k:'mano',tag:'Hecho a mano'},
+  {id:'ry1o-Vcl4QM',title:'Videos corporativos',k:'mano',tag:'Hecho a mano'},
+  {id:'updTsF9k8y0',title:'Video e-learning',k:'mix',tag:'con ese toque humano'},
+];
+// RRSS (TikTok): id = el número largo del link · thumb = tu imagen vertical (guárdala en la carpeta img/).
+// Si el archivo no existe, la miniatura se toma del propio TikTok.
+const SOCIAL = [
+  {id:'7692480643711683847',thumb:'img/tt1.png'},
+  {id:'7504834008145022214',thumb:'img/tt2.png'},
+  {id:'7410038517033651461',thumb:'img/tt3.png'},
+];
+const TALLER = [   // cada grupo es una categoría (sin título); peso 1-3 = tamaño
+  {c:'var(--acc)',t:[['After Effects',3],['Premiere Pro',3],['Photoshop',2],['Illustrator',2],['Figma',2],['Media Encoder',1]]},
+  {c:'#a78bfa',t:[['Higgsfield',3],['Claude',3],['Adobe Podcast',2],['HeyGen',3],['ElevenLabs',3],['ChatGPT',2]]},
+  {c:'#ec4899',t:[['Articulate Storyline',3],['Rise Articulate',3],['e-learning',2]]},
+];
+
+const LOGO_MONO = true;   // true = todos los logos en una sola tinta (blanco/negro según el tema). Funciona con PNG/SVG de fondo transparente
+const LOGOS = [   // logos en la carpeta logos/
+  {n:'Marca 1',src:'logos/logo1.png'},{n:'Marca 2',src:'logos/logo2.png'},{n:'Marca 3',src:'logos/logo3.png'},{n:'Marca 4',src:'logos/logo4.png'},
+  {n:'Marca 5',src:'logos/logo5.png'},{n:'Marca 6',src:'logos/logo6.png'},{n:'Marca 7',src:'logos/logo7.png'},{n:'Marca 8',src:'logos/logo8.png'},
+];
+
+/* ═══════════ LÓGICA (no necesitas tocar) ═══════════ */
+const $=s=>document.querySelector(s);
+/* Carrusel infinito (logos) */
+function loop(el,html,sp){
+  el.innerHTML=html;const f=el.firstElementChild,l=el.lastElementChild;if(!f)return;
+  const P=l.offsetLeft+l.offsetWidth-f.offsetLeft+18;
+  el.innerHTML=html.repeat(Math.ceil(el.clientWidth/P)+2);
+  let pos=el.scrollLeft=P;const hv=matchMedia('(hover:hover)').matches;
+  (function t(){
+    if(hv&&el.matches(':hover'))pos=el.scrollLeft;else{pos+=sp;el.scrollLeft=pos}
+    if(el.scrollLeft>=2*P){el.scrollLeft-=P;pos=el.scrollLeft}
+    requestAnimationFrame(t)})();
+}
+
+/* Portada: se desliza, se detiene, reproduce el video completo y sigue SIEMPRE hacia la derecha */
+const hs=$('#hs'),bars=$('#bars');
+hs.innerHTML=HERO_VIDEOS.map(src=>`<div class="sl"><video src="${src}" muted playsinline preload="metadata"></video></div>`).join('');
+bars.innerHTML=HERO_VIDEOS.map((_,i)=>`<div class="bar" data-i="${i}"><b></b></div>`).join('');
+const slides=[...hs.children],vids=[...hs.querySelectorAll('video')],bs=[...bars.querySelectorAll('b')],N=vids.length,offs=[];
+let cur=0,heroMuted=true,tm=0,seen=true,started=false;
+function place(){   // cada slide tiene una posición relativa; al dar la vuelta, el slide reaparece por la derecha sin rebobinar
+  slides.forEach((sl,k)=>{
+    let o=((k-cur)%N+N)%N;if(o>N/2)o-=N;
+    const p=offs[k],anim=p!==undefined&&(Math.abs(p)<=1||Math.abs(o)<=1)&&Math.abs(o-p)<=2;
+    sl.style.transition=anim?'':'none';sl.style.transform=`translateX(${o*100}%)`;offs[k]=o});
+}
+function go(i){
+  clearTimeout(tm);vids[cur].pause();
+  cur=(i+N)%N;place();
+  bs.forEach((b,k)=>b.style.setProperty('--p',k<cur?'100%':'0%'));
+  const v=vids[cur];try{v.currentTime=0}catch(e){}
+  vids[(cur+1)%N].preload='auto';
+  tm=setTimeout(()=>{started=true;if(seen){v.muted=heroMuted;v.play().catch(()=>{})}},900);   // espera a que termine el deslizamiento
+}
+vids.forEach((v,k)=>{
+  v.addEventListener('timeupdate',()=>{if(k===cur&&v.duration)bs[k].style.setProperty('--p',(v.currentTime/v.duration*100)+'%')});
+  v.addEventListener('ended',()=>{if(k===cur)go(cur+1)});
+  v.addEventListener('error',()=>{if(k===cur){clearTimeout(tm);tm=setTimeout(()=>go(cur+1),2500)}});
+});
+$('#hp').onclick=()=>go(cur-1);$('#hn').onclick=()=>go(cur+1);
+bars.onclick=e=>{const b=e.target.closest('.bar');if(b)go(+b.dataset.i)};
+$('#hm').onclick=e=>{heroMuted=!heroMuted;vids.forEach(v=>v.muted=heroMuted);e.currentTarget.textContent=heroMuted?'🔇':'🔊'};
+new IntersectionObserver(([e])=>{seen=e.isIntersecting;const v=vids[cur];if(!started)return;seen?v.play().catch(()=>{}):v.pause()},{threshold:.25}).observe($('#top'));
+go(0);
+
+/* Etiquetas IA / a mano */
+const SQ='<svg viewBox="0 0 60 6" preserveAspectRatio="none"><path d="M1 3Q8 0 15 3T30 3T45 3T59 3"/></svg>';
+const tagH=(k,t)=>k==='ia'?`<span class="tg ia">✦ ${t}</span>`:k==='mano'?`<span class="tg mano">${t}${SQ}</span>`:`<span class="tg ia">✦ IA</span><span class="tg mano">${t}${SQ}</span>`;
+$('#lgd').innerHTML=tagH('ia','IA')+'<span style="opacity:.4;margin:0 .4em">·</span>'+tagH('mano','hecho a mano');
+
+/* Galería con parallax */
+const SP=[-24,18,-14,-24,18,-14],SP3=[-30,50,-40];
+$('#gal').innerHTML=GALERIA.map((v,i)=>`<figure class="gi rv" data-g="g" data-i="${i}" data-sp="${SP[i%6]}"><img class="m" src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg" alt="${v.title}" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"><div class="sh"></div><div class="pl"><i></i></div><figcaption class="gl"><b>${v.title}</b>${tagH(v.k,v.tag)}</figcaption></figure>`).join('');
+const poster=id=>`<iframe class="pst m" src="https://www.tiktok.com/player/v1/${id}?autoplay=0&controls=0&progress_bar=0&play_button=0&volume_control=0&fullscreen_button=0&timestamp=0&rewind=0&description=0&music_info=0&closed_caption=0&native_context_menu=0" loading="lazy" tabindex="-1"></iframe>`;
+window.tkFallback=img=>{const i=+img.closest('.gi').dataset.i;img.outerHTML=poster(SOCIAL[i].id)};   // si falta tu imagen, usa la portada del TikTok
+$('#soc').innerHTML=SOCIAL.map((v,i)=>`<figure class="gi v al rv" data-g="s" data-i="${i}" data-sp="${SP3[i%3]}"><div class="ph"></div>${v.thumb?`<img class="m" src="${v.thumb}" alt="TikTok ${i+1}" onerror="tkFallback(this)">`:poster(v.id)}<div class="sh"></div><div class="pl"><i></i></div><figcaption class="gl">${tagH('mano','Hecho a mano')}</figcaption></figure>`).join('');
+document.addEventListener('click',e=>{const c=e.target.closest('.gi');if(!c)return;const g=c.dataset.g==='g';showPV({type:g?'youtube':'tiktok',id:(g?GALERIA:SOCIAL)[+c.dataset.i].id})});
+
+$('#sw').innerHTML=TALLER.map(g=>`<div class="sc rv" style="--g:${g.c}"><div class="cl">${g.t.map(([n,w])=>`<span class="s${w}" style="animation-delay:-${(Math.random()*5).toFixed(1)}s;--r:${Math.random()>.5?3:-3}deg">${n}</span>`).join('')}</div></div>`).join('');
+
+/* Logos */
+if(LOGO_MONO)$('#logos').classList.add('mono');
+loop($('#logos'),LOGOS.map(l=>`<div class="lg"><img src="${l.src}" alt="${l.n}" onerror="this.replaceWith(this.alt)"></div>`).join(''),.5);
+
+/* Palabras rotativas */
+const rot=$('#rot');let wi=0;
+function setWord(){const s=document.createElement('span');s.textContent=WORDS[wi];s.className='in';const old=rot.firstElementChild;if(old){old.className='out';setTimeout(()=>old.remove(),600)}rot.appendChild(s);wi=(wi+1)%WORDS.length}
+setWord();setInterval(setWord,2600);
+
+/* Reveal al hacer scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Parallax */
+let tick=false;
+function px(){
+  const h=innerHeight;
+  document.querySelectorAll('.gi').forEach(el=>{
+    const r=el.getBoundingClientRect();if(r.bottom<-300||r.top>h+300)return;
+    const base=r.top-(+el.dataset.cy||0),p=(base+r.height/2-h/2)/h,py=p*el.dataset.sp;
+    el.dataset.cy=py;el.style.setProperty('--py',py+'px');
+    (el.querySelector('.m')||el.firstElementChild).style.transform=`scale(1.16) translateY(${p*-18}px)`});
+  tick=false;
+}
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(px)}},{passive:true});addEventListener('resize',px);px();
+
+/* Tema claro / oscuro */
+const root=document.documentElement;
+function setTheme(t){root.dataset.theme=t;document.querySelectorAll('.thm').forEach(b=>b.textContent=t==='dark'?'☀':'☾');try{localStorage.setItem('theme',t)}catch(e){}}
+let saved=null;try{saved=localStorage.getItem('theme')}catch(e){}
+setTheme(saved||'dark');
+document.querySelectorAll('.thm').forEach(b=>b.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark'));
+
+/* ═══════════ TARIFAS (se abre con el puntico del footer o con tu-sitio/#tarifas) ═══════════ */
+const R={EUR:1,USD:1.165,COP:4090};let C='EUR';
+const DEMOS={elearn:{type:'youtube',id:'updTsF9k8y0'},corp:{type:'youtube',id:''}};   // video de cada botón "Ver demo" (youtube o tiktok)
+const fv=(v,c)=>c==='EUR'?'€'+v.toLocaleString('es-CO'):c==='USD'?'$'+Math.round(v*R.USD).toLocaleString('es-CO')+' USD':'$'+Math.round(v*R.COP/1000).toLocaleString('es-CO')+'k COP';
+const pr=(lo,hi=lo)=>{const f=c=>lo===hi?fv(lo,c):fv(lo,c)+'–'+fv(hi,c);return `<div class="pm">${f(C)}</div><div class="pa">${['EUR','USD','COP'].filter(c=>c!==C).map(f).join(' · ')}</div>`};
+const ul=(a,k='')=>'<ul class="ft">'+a.map(x=>`<li${k?` class="${k}"`:''}>${x}</li>`).join('')+'</ul>';
+const blk=(a,t,d,b,inner)=>`<section class="bk" style="--a:${a}"><div class="bh"><i></i><div style="flex:1"><h3>${t}</h3><p>${d}</p></div><em>${b}</em></div>${inner}</section>`;
+const hc=(t,s,p,l,d)=>`<div class="tc"><b style="font-size:15px">${t}</b><small style="display:block;text-transform:uppercase;margin:4px 0 8px">${s}</small>${d?`<p>${d}</p>`:''}${p}${l?ul(l):''}</div>`;
+const qt=(t,d,demo)=>`<div class="tc qt"><b>${t}</b><p>${d}</p>${demo?`<small><b>¿Quieres ver cómo luce el resultado final?</b></small><button class="demo" data-demo="${demo}">▶ Ver demo</button>`:''}</div>`;
+const PREVIEW=['','',''];   // ID numérico del TikTok de cada tarifa (el número al final del link del video)
+const BASIC=[
+ ['Edición básica','Estándar','Corte limpio, ritmo, música y subtítulos. Lo esencial para publicar con calidad.',33,['Corte y ritmo narrativo','Música y diseño de sonido','Subtítulos con animación sencilla','Mejoras de material - IA','1 ronda de revisión']],
+ ['Edición + IA','IA incluida','Todo lo básico más recursos únicos generados con IA: assets, voces, efectos.',40,['Todo lo básico','Assets exclusivos generados con IA','Mejoras de material - IA','1 ronda de revisión']],
+ ['Graficación','Premium','Motion graphics y animaciones avanzadas para videos con identidad visual fuerte.',52,['Todo lo básico','Motion graphics','Animaciones avanzadas','Ronda de revisiones ILIMITADA']]];
+const PACKS=[[['Esencial',132,120],['Expansión',264,224],['Avanzado',396,300]],[['Esencial IA',160,152],['Expansión IA',320,280],['Avanzado IA',480,380]],[['Esencial',208,200],['Expansión',416,384],['Avanzado',624,564]]];
+const QTY=['4 videos','8 videos','+ 12 videos'];
+function renderT(){
+ const cam=['Cortes y ritmo dinámico','Cambios de cámaras','Ritmo visual profesional','Corrección de audio'];
+ $('#tb').innerHTML=`<span class="eyebrow">Tarifas</span><h2>Trabajemos juntos</h2>
+ <h3 class="tl">Videos para redes sociales</h3>
+ <div class="t3">${BASIC.map((b,i)=>`<div class="col c${i+1}"><div class="tc hd"><div class="top"><b>${b[0]}</b><em>${b[1]}</em></div><p>${b[2]}</p><button class="pvbtn" data-pv="${i}">▶ Ver preview</button></div><div class="tc"><small>Valor por unidad</small>${pr(b[3])}${ul(b[4])}</div></div>`).join('')}</div>
+ <h3 class="tl">Packs de videos</h3>
+ <div class="t3">${PACKS.map((c,i)=>`<div class="col c${i+1}">${c.map((p,j)=>`<div class="tc"><small>${QTY[j]}</small><div class="top"><b>${p[0]}</b>${j==1?'<em>Más popular</em>':''}</div><div class="old">${fv(p[1],C)}</div>${pr(p[2])}</div>`).join('')}</div>`).join('')}</div>
+ <p class="note">Todos los packs incluyen <b>1 ronda de revisión por video</b>. Revisiones adicionales: +2%/video.</p>
+ ${blk('#60a5fa','Edición de Podcast','Video podcast con presencia visual profesional. Precio por episodio según duración y complejidad.','Podcast',`<div class="hr" style="grid-template-columns:repeat(4,1fr)">${hc('1 Cámara','Hasta 60 min',pr(80),['Cortes y ritmo dinámico','Cambios de encuadre','Corrección de audio'])}${hc('2 Cámaras','Hasta 100 min',pr(110),cam)}${hc('3 Cámaras','Hasta 100 min',pr(140),cam)}${qt('Cotización personalizada','Más de 3 cámaras, proyectos de más de 100 min o con características especiales.')}</div>`)}
+ ${blk('#fcba03','Videos Corporativos','Comunicación empresarial y contenidos institucionales, alineados a la identidad de marca.','Corporativo',`<div class="hr" style="grid-template-columns:1fr 1fr">${hc('Desde','Precio base',pr(100),['Edición profesional','Corrección de audio','Transiciones limpias y profesionales','Adaptación al manual de marca (si aplica)','1 ronda de revisión'])}${qt('Proyectos a medida','Precio base para proyectos corporativos convencionales. Los que requieran mayor producción, animación o personalización se cotizan aparte.','corp')}</div>`)}
+ ${blk('#f87171','Edición para YouTube','Desde cortes limpios hasta producciones completas con diseño sonoro, motion graphics y recursos con IA.','YouTube',`<div class="hr" style="grid-template-columns:repeat(3,1fr)">${hc('Corte de Stream','Depuración de contenido',pr(34,43),0,'Transmisiones extensas convertidas en una versión limpia y condensada, sin tiempos muertos.')}${hc('Video YouTube','Producción completa',pr(140,180),0,'Del material bruto al video final: estructura narrativa, diseño sonoro, dinamismo visual y acabados listos para publicar.')}${hc('Vlog + IA','Workflow premium',pr(190,210),0,'Edición de alto nivel con recursos visuales e integraciones de IA para reforzar la narrativa y mejorar la retención.')}</div><p class="note">• El valor final puede variar según la complejidad visual, el nivel de edición y las referencias del cliente.<br>• Para una cotización precisa, comparte ejemplos del resultado esperado.<br>• Tarifas para videos finales a partir de 30 minutos.</p>`)}
+ ${blk('#ec4899','Video E-Learning IA','Cursos y videos corporativos listos para publicar, sin grabaciones, cámara ni estudio.','Producción digital',`<div class="hr" style="grid-template-columns:2fr 1fr"><div class="tc"><b>Producción integral</b><p style="margin-top:8px">Tu contenido convertido en un video profesional: narración, recursos visuales, diseño gráfico y producción digital avanzada.</p><div class="cmp"><div><h4>Lo que NO necesitas</h4>${ul(['Grabaciones de video','Equipos, cámaras o iluminación','Presentadores o actores','Asumir errores de dicción'],'no')}</div><div><h4>Lo que entregamos</h4>${ul(['Presentador profesional','Narración con calidad de estudio','Recursos visuales y gráficos de apoyo','Identidad visual alineada a tu marca'])}</div></div><small><b>⚠️ El único insumo indispensable es tu texto, guion o presentación.</b></small></div>${qt('Cotización personalizada','El valor se calcula según la duración final, el nivel de graficación y los recursos visuales requeridos.','elearn')}</div>`)}
+ <p class="rt">Tasas de referencia: 1 EUR = ${R.USD} USD | 1 EUR = ${R.COP.toLocaleString('es-CO')} COP</p>`;
+}
+const T=$('#tarifas');
+const hist=u=>{try{history.replaceState(null,'',u)}catch(e){}};   // evita SecurityError al abrir el archivo directo (file://)
+let yS={d:0,st:-1,m:false};
+const yc=(f,a=[])=>{const w=$('#yt');if(w)w.contentWindow.postMessage(JSON.stringify({event:'command',func:f,args:a}),'*')};
+function showPV(v){
+  const b=$('#pvb');b.className='pvb'+(v.type==='tiktok'?'':' h');
+  if(!v.id)b.innerHTML='<p>Falta el ID del video en la configuración</p>';
+  else if(v.type==='tiktok')b.innerHTML=`<iframe src="https://www.tiktok.com/player/v1/${v.id}?autoplay=1&description=0&music_info=0&rel=0&closed_caption=0" allow="autoplay;fullscreen"></iframe>`;
+  else{
+    yS={d:0,st:-1,m:false};
+    b.innerHTML=`<iframe id="yt" src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&enablejsapi=1" allow="autoplay;encrypted-media;fullscreen" allowfullscreen></iframe><div class="yb"><button id="ypl" aria-label="Pausa">❚❚</button><input id="ysk" type="range" min="0" max="1000" value="0" aria-label="Progreso"><button id="ymu" aria-label="Sonido">🔊</button><button id="yfs" aria-label="Pantalla completa">⛶</button></div>`;
+    const f=$('#yt');f.onload=()=>f.contentWindow.postMessage(JSON.stringify({event:'listening',id:1}),'*');
+    $('#ypl').onclick=()=>yc(yS.st===1?'pauseVideo':'playVideo');
+    $('#ymu').onclick=e=>{yS.m=!yS.m;yc(yS.m?'mute':'unMute');e.currentTarget.textContent=yS.m?'🔇':'🔊'};
+    $('#ysk').oninput=e=>yc('seekTo',[e.target.value/1000*yS.d,true]);
+    $('#yfs').onclick=()=>{const p=$('#pvb');p.requestFullscreen&&p.requestFullscreen()};
+  }
+  $('#pv').classList.add('open')}
+addEventListener('message',e=>{let d;try{d=JSON.parse(e.data)}catch(x){return}
+  const i=d&&d.event==='infoDelivery'&&d.info;if(!i)return;
+  if(i.duration)yS.d=i.duration;
+  if(i.playerState!==undefined){yS.st=i.playerState;const p=$('#ypl');if(p)p.textContent=i.playerState===1?'❚❚':'▶'}
+  if(i.currentTime!==undefined&&yS.d){const k=$('#ysk');if(k&&document.activeElement!==k)k.value=i.currentTime/yS.d*1000}});
+function closePV(){$('#pv').classList.remove('open');$('#pvb').innerHTML=''}
+$('#tb').onclick=e=>{const b=e.target.closest('.pvbtn'),d=e.target.closest('.demo');if(b)showPV({type:'tiktok',id:PREVIEW[+b.dataset.pv]});if(d)showPV(DEMOS[d.dataset.demo])};
+$('#pvx').onclick=closePV;$('#pv').onclick=e=>{if(e.target.id==='pv')closePV()};
+function openT(){renderT();T.classList.add('open');T.scrollTop=0;document.body.style.overflow='hidden';hist('#tarifas')}
+function closeT(){T.classList.remove('open');document.body.style.overflow='';hist(location.pathname)}
+$('#openT').onclick=openT;$('#tback').onclick=closeT;
+addEventListener('keydown',e=>{if(e.key==='Escape'){$('#pv').classList.contains('open')?closePV():closeT()}});
+document.querySelectorAll('.cur button').forEach(b=>b.onclick=()=>{C=b.dataset.c;document.querySelectorAll('.cur button').forEach(x=>x.classList.toggle('act',x===b));renderT()});
+if(location.hash==='#tarifas')openT();
+
+/* Foto de respaldo si el link falla */
+$('#me').onerror=function(){this.removeAttribute('src');this.classList.add('ph')};
+/* Frase final animada */
+(function(){const el=$('#sig');
+  el.innerHTML='<span class="tld">~</span>'+'Gracias por creer en lo que soy capaz de crear'.split(' ').map((w,i)=>`<span class="w${w==='crear'?' hl':''}" style="--i:${i}">${w==='crear'?w+'<svg class="ul" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 8Q50 1 100 7T197 5"/></svg><b class="sp">✨</b>':w}</span>`).join(' ');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){el.classList.add('on');o.disconnect()}}),{threshold:.4}).observe(el)})();
+</script>
+</body>
+</html>
