@@ -224,7 +224,7 @@ footer{text-align:center;padding:80px 28px 40px;border-top:1px solid var(--line)
 
 <section id="social" style="background:var(--surf);padding:70px 0 80px">
   <div class="wrap">
-    <div class="rv"><h2>Videos para RRSS</h2></div>
+    <div class="rv"><h2> </h2></div>
     <div class="gal s3" id="soc"></div>
   </div>
 </section>
@@ -421,7 +421,7 @@ const QTY=['4 videos','8 videos','+ 12 videos'];
 function renderT(){
  const cam=['Cortes y ritmo dinámico','Cambios de cámaras','Ritmo visual profesional','Corrección de audio'];
  $('#tb').innerHTML=`<span class="eyebrow">Tarifas</span><h2>Trabajemos juntos</h2>
- <h3 class="tl"> </h3>
+ <h3 class="tl">Videos para redes sociales</h3>
  <div class="t3">${BASIC.map((b,i)=>`<div class="col c${i+1}"><div class="tc hd"><div class="top"><b>${b[0]}</b><em>${b[1]}</em></div><p>${b[2]}</p><button class="pvbtn" data-pv="${i}">▶ Ver preview</button></div><div class="tc"><small>Valor por unidad</small>${pr(b[3])}${ul(b[4])}</div></div>`).join('')}</div>
  <h3 class="tl">Packs de videos</h3>
  <div class="t3">${PACKS.map((c,i)=>`<div class="col c${i+1}">${c.map((p,j)=>`<div class="tc"><small>${QTY[j]}</small><div class="top"><b>${p[0]}</b>${j==1?'<em>Más popular</em>':''}</div><div class="old">${fv(p[1],C)}</div>${pr(p[2])}</div>`).join('')}</div>`).join('')}</div>
